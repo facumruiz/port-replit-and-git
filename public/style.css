@@ -1,0 +1,53 @@
+/****** Main Styling ******/
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	color: #222;
+	background-color: #ECF0F1;
+	text-align: center;
+}
+
+.menu-bar {
+  height: 80px;
+
+
+background: #222222
+}
+
+.container {
+	padding: 0;
+	margin-top: 40px;
+}
+
+.footer {
+	margin-top: 60px;
+}
+
+ol {
+	list-style-position: inside;
+}
+ul {
+	list-style-type: none;
+}
+
+a {
+	color: #2574A9;
+}
+/****** Logo Div Styling ******/
+
+img {
+	margin: auto;
+	display: block;
+}
+
+.boton-registro {
+  display: block;
+  margin: auto;
+  text-align: center !important;
+  justify-content: center !important;
+}
+
+.color-font-form {
+  color: white !important;
+}
