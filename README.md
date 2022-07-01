@@ -2,5 +2,8 @@
 en proceso.......
 mi idea con este proyecto es mostrar funciones basicas de backend.
 
-#h1 plantilla usada
+# Plantilla usada para el proyecto
+[![Run on Repl.it](https://repl.it/badge/github/freeCodeCamp/boilerplate-npm)](https://repl.it/github/freeCodeCamp/boilerplate-npm)
+
+# Proyecto mio en replit
 [![Run on Repl.it](https://repl.it/badge/github/freeCodeCamp/boilerplate-npm)](https://repl.it/github/freeCodeCamp/boilerplate-npm)
