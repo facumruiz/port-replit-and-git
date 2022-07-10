@@ -5,9 +5,9 @@
  
 var bGround = require('fcc-express-bground');
 var myApp = require('./myApp');
-//var firebase = require('./scripts/firebase');
 var express = require('express');
 var app = express();
+var prueba = require('./script/prueba');
 
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
@@ -23,7 +23,7 @@ if (!process.env.DISABLE_XORIGIN) {
 }
 
 var port = process.env.PORT || 3000;
-bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
+bGround.setupBackgroundApp(app, myApp, prueba, __dirname).listen(port, function(){
   bGround.log('Node is listening on port '+ port)
 });
 
