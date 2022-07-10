@@ -1,11 +1,9 @@
 let express = require('express');
 let app = express();
 
-app.use('/public', express.static(process.cwd() + '/public'));
+var bGround = require('fcc-express-bground');
 
-app.get('/registro', function(req, res){
-  res.sendFile(__dirname + '/views/registro.html');
-})
+app.use('/public', express.static(process.cwd() + '/public'));
 
 app.route('/_api/package.json')
   .get(function(req, res, next) {
@@ -21,8 +19,10 @@ app.route('/')
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
 
-
-
+app.get('/registro', function(req, res){
+  res.sendFile(__dirname + '/views/registro.html');
+  require('./script/registro');
+})
 
 
 
