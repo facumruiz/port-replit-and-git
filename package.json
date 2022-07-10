@@ -8,7 +8,9 @@
 
     "express": "^4.18.1",
 
-    "fcc-express-bground": "^0.0.5"
+    "fcc-express-bground": "^0.0.5",
+
+    "firebase": "^9.9.0"
 
   }
 

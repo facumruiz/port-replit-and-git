@@ -1,4 +1,4 @@
-export const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyCQCL2N7SmEltWLqyF4vY9ah8svngqbx64",
   authDomain: "portfolio-38c55.firebaseapp.com",
   projectId: "portfolio-38c55",
