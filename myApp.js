@@ -21,39 +21,6 @@ app.route('/')
 
 app.get('/registro', function(req, res){
   res.sendFile(__dirname + '/views/registro.html');
-  require('./script/registro');
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
  module.exports = app;

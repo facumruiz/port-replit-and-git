@@ -132,33 +132,73 @@
                         </svg> Registrarse con Google </button>
                 </div>
                 <div class="col-sm-12">
-                    <button type="submit" value="Submit" class="btn btn-secondary mb-2 mt-2 btn-lg btn-block"> Registrarse </button>
+                    <button type="submit" value="Submit" class="btn btn-secondary mb-2 mt-2 btn-lg btn-block">
+                        Registrarse </button>
                 </div>
             </div>
         </form>
-        <script>
-        const userForm = document.getElementById("user-form");
-        userForm.addEventListener("submit", (e) => {
-          e.preventDefault();
-            const userMail = document.getElementById("umail").value;
-            const userCMail = document.getElementById("cumail").value;
-            const userPass = document.getElementById("upass").value;
-            const userCPass = document.getElementById("cupass").value;
-            firebase.auth().createUserWithEmailAndPassword(userCMail, userCPass);
-        });
-            
-        </script>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"></script>
+        <div id="modalexito" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Usuario registrado con exito</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ya puedes usar tu cuenta.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PARTE DE BACKEND -->
+            <script>
+                const userForm = document.getElementById("user-form");
+                userForm.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    const userMail = document.getElementById("umail").value;
+                    const userCMail = document.getElementById("cumail").value;
+                    const userPass = document.getElementById("upass").value;
+                    const userCPass = document.getElementById("cupass").value;
+                    if (userMail != userCMail){
+                      console.log("ERROR LOS MAILS NO COINCIDEN")
+                    }
+                    if (userPass != userCPass){
+                      console.log("ERROR LAS CONTRASEÑAS NO COINCIDEN")
+                    }                  
+
+                    firebase.auth().createUserWithEmailAndPassword(userCMail, userCPass)
+                        .then(userCredential => {
+                            $("#modalexito").modal("show");
+                        })
+                        .catch((error) => {
+                            const errorCode = error.code;
+                            const errorMessage = error.message;
+                            console.log(errorMessage);
+                            window.alert(errorMessage);
+
+                            // ..
+                        });
+
+                });
+
+            </script>
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+                integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+                integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+                crossorigin="anonymous"></script>
 
 </body>
 
