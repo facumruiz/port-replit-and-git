@@ -123,6 +123,15 @@
                 <div class="col-sm-12">
 
                 </div>
+              
+           <!-- INNER HTML -->
+    <div id="txte">
+
+    </div>
+    <div id="txtp">
+
+    </div>
+              
                 <div class="col-sm-12">
                     <button type="button" class="btn btn-secondary mb-2 mt-2 btn-lg btn-block"><svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -165,11 +174,17 @@
                     const userCMail = document.getElementById("cumail").value;
                     const userPass = document.getElementById("upass").value;
                     const userCPass = document.getElementById("cupass").value;
+                    txte = document.getElementById("txte");
+                    txtp = document.getElementById("txtp");
+                  
                     if (userMail != userCMail){
                       console.log("ERROR LOS MAILS NO COINCIDEN")
+                      txte.innerHTML = `<p style="color:red;">The emails do not match</p>`
+                      
                     }
                     if (userPass != userCPass){
                       console.log("ERROR LAS CONTRASEÑAS NO COINCIDEN")
+                      txtp.innerHTML = `<p style="color:red;">Passwords do not match</p>`
                     }                  
 
                     firebase.auth().createUserWithEmailAndPassword(userCMail, userCPass)
@@ -181,6 +196,7 @@
                             const errorMessage = error.message;
                             console.log(errorMessage);
                             window.alert(errorMessage);
+                          txtp.innerHTML = `<p style="color:red;">. The ${errorMessage}</p>`
 
                             // ..
                         });
