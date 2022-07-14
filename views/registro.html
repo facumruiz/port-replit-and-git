@@ -117,21 +117,29 @@
                 <input id="cupass" type="text" class="form-control" placeholder="Confirm your password"
                     aria-label="Input group example" aria-describedby="basic-addon1">
             </div>
+
             <div class="g-recaptcha mt-4" data-theme='dark' data-sitekey="6LdFCZogAAAAAJ1FyUFOOXmKn6JNEDfE7ie29NGH">
+            </div>
+            <!-- INNER HTML -->
+            <div id="txtfe">
+
+            </div>
+            <!-- INNER HTML -->
+            <div id="txtfp">
+
+            </div>
+            <!-- INNER HTML -->
+            <div id="txte">
+
             </div>
             <div class="form-group row boton-registro">
                 <div class="col-sm-12">
 
                 </div>
-              
-           <!-- INNER HTML -->
-    <div id="txte">
 
-    </div>
-    <div id="txtp">
 
-    </div>
-              
+
+
                 <div class="col-sm-12">
                     <button type="button" class="btn btn-secondary mb-2 mt-2 btn-lg btn-block"><svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -175,17 +183,20 @@
                     const userPass = document.getElementById("upass").value;
                     const userCPass = document.getElementById("cupass").value;
                     txte = document.getElementById("txte");
-                    txtp = document.getElementById("txtp");
-                  
-                    if (userMail != userCMail){
-                      console.log("ERROR LOS MAILS NO COINCIDEN")
-                      txte.innerHTML = `<p style="color:red;">The emails do not match</p>`
-                      
+                    txtfe = document.getElementById("txtfe");
+                    txtfp = document.getElementById("txtfp");
+
+                    if (userMail != userCMail) {
+                        //console.log("ERROR LOS MAILS NO COINCIDEN")
+                        txtfe.innerHTML = `<p style="color:red;">The emails do not match</p>`
+
                     }
-                    if (userPass != userCPass){
-                      console.log("ERROR LAS CONTRASEÑAS NO COINCIDEN")
-                      txtp.innerHTML = `<p style="color:red;">Passwords do not match</p>`
-                    }                  
+                    if (userMail == userCMail) {
+                        //console.log("ERROR LOS MAILS NO COINCIDEN")
+                        txtfe.innerHTML = `<p style="color:green;">The emails do match</p>`
+
+                    }
+
 
                     firebase.auth().createUserWithEmailAndPassword(userCMail, userCPass)
                         .then(userCredential => {
@@ -195,8 +206,8 @@
                             const errorCode = error.code;
                             const errorMessage = error.message;
                             console.log(errorMessage);
-                            window.alert(errorMessage);
-                          txtp.innerHTML = `<p style="color:red;">. The ${errorMessage}</p>`
+                            //window.alert(errorMessage);
+                            txte.innerHTML = `<p style="color:red;">${errorMessage}</p>`
 
                             // ..
                         });
