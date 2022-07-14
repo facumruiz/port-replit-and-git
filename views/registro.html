@@ -65,7 +65,7 @@
 <body style="background-color: #0d0f13">
 
     <div class="card container mt-5 mb-5" style="width: 40rem; background-color: #2d3036;">
-        <form id="user-form" class="container mt-4">
+        <form id="user-form" class="container mt-4" method="post">
 
             <div class="input-group w-100">
                 <span class="input-group-text" id="mail1">
@@ -118,8 +118,10 @@
                     aria-label="Input group example" aria-describedby="basic-addon1">
             </div>
 
-            <div class="g-recaptcha mt-4" data-theme='dark' data-sitekey="6LdFCZogAAAAAJ1FyUFOOXmKn6JNEDfE7ie29NGH">
+            <div class="g-recaptcha mt-4" data-theme='dark' data-sitekey="6LdFCZogAAAAAJ1FyUFOOXmKn6JNEDfE7ie29NGH" data-callback = "recaptcha_callback">
+              
             </div>
+                          <div id="g-recaptcha-error"></div>
             <!-- INNER HTML -->
             <div id="txtfe">
 
@@ -173,6 +175,10 @@
 
             <!-- PARTE DE BACKEND -->
             <script>
+              
+            function recaptcha_callback() {
+              
+            }
                 const userForm = document.getElementById("user-form");
                 userForm.addEventListener("submit", (e) => {
                     e.preventDefault();
